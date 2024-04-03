@@ -1,6 +1,18 @@
+// const addTaskEl = $('#addTask-btn')
+
+
+// addTaskEl.on(`click`,function() {
+//     add-task()
+// })
+
+
 // Retrieve tasks and nextId from localStorage
-let taskList = JSON.parse(localStorage.getItem("tasks"));
+let taskList = JSON.parse(localStorage.getItem("tasks")) || [];
 let nextId = JSON.parse(localStorage.getItem("nextId"));
+
+$(document).ready(function(){
+    $('#datepicker').datepicker();
+  });
 
 // Todo: create a function to generate a unique task id
 function generateTaskId() {
