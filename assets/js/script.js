@@ -1,11 +1,3 @@
-// const addTaskEl = $('#addTask-btn')
-
-
-// addTaskEl.on(`click`,function() {
-//     add-task()
-// })
-
-
 // Retrieve tasks and nextId from localStorage
 let taskList = JSON.parse(localStorage.getItem("tasks")) || [];
 let nextId = JSON.parse(localStorage.getItem("nextId"));
@@ -16,8 +8,10 @@ $(document).ready(function(){
 
 // Todo: create a function to generate a unique task id
 function generateTaskId() {
+  return Math.random().toString(36).substring(2) + (new Date()).getTime().toString(36);
 
 }
+console.log(generateTaskId()) 
 
 // Todo: create a function to create a task card
 function createTaskCard(task) {
