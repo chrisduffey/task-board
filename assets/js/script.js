@@ -1,7 +1,24 @@
+function handleSubmit (event) {
+  event.preventDefault()
+  const titleEl = document.getElementById(`title`).value.trim()
+  const dateEl = document.getElementById(`date`).value.trim()
+  const describeEl = document.getElementById(`describe`).value.trim()
+  if(!titleEl || !dateEl || !describeEl){
+    const errorEl = document.getElementById("error")
+    errorEl.textContent = "Please fill all fields"
+    setTimeout(() => {
+      errorEl.textContent = ""
+    }, 3000);
+    return;
+  }
+}
+
+
 // Retrieve tasks and nextId from localStorage
 let taskList = JSON.parse(localStorage.getItem("tasks")) || [];
 let nextId = JSON.parse(localStorage.getItem("nextId"));
 
+// date picker for form
 $(document).ready(function(){
     $('#datepicker').datepicker();
   });
