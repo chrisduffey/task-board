@@ -61,7 +61,6 @@ function createTaskCard(task) {
   card.append(header, body)
   return card
 
-
 }
 
 // Todo: create a function to render the task list and make cards draggable
@@ -83,6 +82,7 @@ function renderTaskList() {
   $('.task-card').draggable({
     opacity: 0.7,
     zIndex: 100,
+
     // function to clone the card being dragged so that the original card remains in place
     helper: function (e) {
       // check of the target of the drag event is the card itself or a child element if it is the card itself, clone it, otherwise find the parent card and clone that
@@ -94,11 +94,6 @@ function renderTaskList() {
       });
     },
   });
-}
-
-// Todo: create a function to handle adding a new task
-function handleAddTask(event) {
-
 }
 
 // Todo: create a function to handle deleting a task
