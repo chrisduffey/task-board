@@ -47,6 +47,7 @@ function createTaskCard(task) {
   const dueDate = $("<p>").addClass("card-text").text(task.dueDate)
   const deletebtn = $("<button>").addClass("btn btn-danger delete").attr("data-id", task.id).text("delete")
   deletebtn.on("click", handleDeleteTask)
+  
   if (task.status !== "done") {
     const today = dayjs()
     const taskDueDate = dayjs(task.dueDate, "DD/MM/YYYY")
@@ -98,8 +99,13 @@ function renderTaskList() {
 
 // Todo: create a function to handle deleting a task
 function handleDeleteTask(event) {
-  
-
+    let dataId = $(this).attr("#data-id")
+    console.log($(this).attr("#data-id"))
+  taskList = taskList.filter(function(task) {
+    return task.id !== dataId;
+  }) 
+  localStorage.setItem(`tasks`, JSON.stringify(taskList));
+  renderTaskList();
 
 }
 
@@ -135,4 +141,5 @@ $(document).ready(function () {
   });
   $("#taskForm").on("submit", handleSubmit)
   $("#btn btn-danger delete").on("click", handleSubmit)
+  
 });
