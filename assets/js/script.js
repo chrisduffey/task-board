@@ -99,8 +99,8 @@ function renderTaskList() {
 
 // Todo: create a function to handle deleting a task
 function handleDeleteTask(event) {
-    let dataId = $(this).attr("#data-id")
-    console.log($(this).attr("#data-id"))
+    let dataId = $(this).attr("data-id")
+    console.log($(this).attr("data-id"))
   taskList = taskList.filter(function(task) {
     return task.id !== dataId;
   }) 
@@ -140,6 +140,6 @@ $(document).ready(function () {
     drop: handleDrop,
   });
   $("#taskForm").on("submit", handleSubmit)
-  $("#btn btn-danger delete").on("click", handleSubmit)
+  
   
 });
